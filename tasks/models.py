@@ -8,7 +8,7 @@ class Tenant(models.Model):
     def __str__(self):
         return self.name
     
-class tasks(models.Model):
+class Task(models.Model):
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, related_name="tasks")
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -16,3 +16,4 @@ class tasks(models.Model):
 
     def __str__(self):
         return f"[{self.tenant.name}] {self.title}"
+
